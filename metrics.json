@@ -1,0 +1,98 @@
+{
+    "densenet121_dataset2-4": [
+        {
+            "__note": "Trained on dataset2 with 500 images/classes and total 4000 images",
+            "trained_dataset": {
+
+                "Incorrect": 147,
+                "Correct": 3853,
+                
+                "Healthy": 497,
+                "Anthracnose": 444,
+                "Powdery Mildew": 468,
+                "Gall Midge": 484,
+                "Bacterial Canker": 499,
+                "Die Back": 489,
+                "Sooty Mould": 472,
+                "Cutting Weevil": 500
+            },
+            "__note": "Tested on dataset1 with 5000 images/classes and total 40000 images",
+            "unknown-dataset": {
+
+                "Incorrect": 13794,
+                "Correct": 26206,
+                
+                "Healthy": 4235,
+                "Anthracnose": 3550,
+                "Powdery Mildew": 3312,
+                "Gall Midge": 2462,
+                "Bacterial Canker": 1894,
+                "Die Back ": 3387,
+                "Sooty Mould": 2773,
+                "Cutting Weevil": 4593
+            }
+        }
+    ],
+    "densenet121-dataset3-1": [
+        {
+            "__note": "Trained on dataset3 with 600 images/classes and total 3000 images",
+            "trained_dataset": {
+
+                "Incorrect": 197,
+                "Correct": 2803,
+                
+                "Healthy": 600,
+                "Anthracnose": 499,
+                "Gall Midge": 527,
+                "Bacterial Canker": 584,
+                "Die Back": 593
+            },
+            "__note": "Tested on dataset2 with 500 images/classes and total 2500 images",
+            "unknown-dataset": {
+
+                "Incorrect": 787,
+                "Correct": 1713,
+                
+                "Healthy": 500,
+                "Anthracnose": 355,
+                "Gall Midge": 24,
+                "Bacterial Canker": 474,
+                "Die Back": 360
+            }
+        }
+    ],
+    "densenet121_dataset1-5": [
+        {
+            "__note": "Trained on dataset1 with 5000 images/classes and total 40000 images",
+            "trained_dataset": {
+
+                "Incorrect": 5103,
+                "Correct": 34897,
+                
+                "Healthy": 4962,
+                "Anthracnose": 3483,
+                "Powdery Mildew": 4253,
+                "Gall Midge": 3527,
+                "Bacterial Canker": 4797,
+                "Die Back": 4843,
+                "Sooty Mould": 4075,
+                "Cutting Weevil": 4957
+            },
+            "__note": "Tested on dataset2 with 500 images/classes and total 4000 images",
+            "unknown-dataset": {
+
+                "Incorrect": 383,
+                "Correct": 3617,
+                
+                "Healthy": 495,
+                "Anthracnose": 355,
+                "Powdery Mildew": 453,
+                "Gall Midge": 418,
+                "Bacterial Canker": 500,
+                "Die Back": 496,
+                "Sooty Mould": 400,
+                "Cutting Weevil": 500
+            }
+        }
+    ]
+}
