@@ -7,4 +7,4 @@ ___
 `source .venv/bin/activate`
 
 ### Now install Libraries
-`pip install opencv-python tensorflow scikit-learn`
+`pip install opencv-python tensorflow scikit-learn Flask Flask-CORS`

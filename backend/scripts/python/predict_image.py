@@ -10,6 +10,7 @@ def predict_image(image_path,img_size,model):
     img=np.expand_dims(img,axis=0)
     prediction=model.predict(img)
     class_index=np.argmax(prediction)
+    print(prediction)
     match class_index:
         case 0:
             return 'Anthracnose'
