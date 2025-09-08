@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function BackendStatus() {
+function BackendStatus({ darkmode }) {
   const [status, setStatus] = useState("Unknown");
+
+  useEffect(() => {
+    checkBackend();
+  }, []);
 
   const checkBackend = async () => {
     try {
@@ -14,13 +18,12 @@ function BackendStatus() {
   };
 
   return (
-    <div className="flex items-center gap-4 p-4 bg-gray-100 rounded-lg shadow-sm">
-      <span className="text-sm text-gray-700">
+    <div className={`flex items-center gap-4 p-4 rounded-lg shadow-sm m-4 fixed bottom-0 right-0 ${darkmode ? 'bg-gray-700' : 'bg-purple-300'}`}>
+      <span className="text-sm">
         Backend Status:{" "}
         <span
-          className={`font-semibold ${
-            status.includes("unreachable") ? "text-red-600" : "text-green-600"
-          }`}
+          className={`font-semibold text-gray-500 ${status.includes("unreachable") ? "text-red-600" : "text-green-600"
+            }`}
         >
           {status}
         </span>

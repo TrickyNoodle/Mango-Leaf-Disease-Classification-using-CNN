@@ -1,4 +1,4 @@
-function ImageUpload({ onImageSelected }) {
+function ImageUpload({ onImageSelected, darkmode }) {
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -12,7 +12,7 @@ function ImageUpload({ onImageSelected }) {
   };
 
   return (
-    <div className="flex flex-col items-center p-6 border-2 border-dashed rounded-lg bg-white shadow-sm">
+    <div className={`flex flex-col items-center p-6 border-2 border-dashed rounded-lg shadow-sm ${darkmode ? 'bg-gray-700 text-white' : 'bg-purple-200'}`}>
       <input
         type="file"
         accept="image/*"
