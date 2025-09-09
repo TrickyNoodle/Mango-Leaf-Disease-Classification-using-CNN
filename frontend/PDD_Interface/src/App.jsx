@@ -7,17 +7,11 @@ import Navbar from "./components/Navbar";
 function App() {
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [darkmode, setDarkmode] = useState(false)
+  const [darkmode, setDarkmode] = useState(false);
 
-  const darkmodechange = (darkmodeswitch) => {
-    if (darkmodeswitch.current.checked == true) {
-      setDarkmode(true)
-    }
-    else {
-      setDarkmode(false)
-    }
-    console.log(darkmode)
-  }
+  const handleDarkModeChange = (e) => {
+    setDarkmode(e.target.checked);
+  };
 
   const handleImageSelected = async (base64Image) => {
     setPrediction(null); // clear previous
@@ -41,12 +35,15 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-gray-50 flex flex-col items-center ${darkmode ? 'bg-gray-900 text-white' : 'bg-purple-500'}`}>
-      <Navbar darkmode={darkmode} darkmodechange={darkmodechange} />
+    <div
+      className={`min-h-screen flex flex-col items-center transition-colors duration-300 
+        ${darkmode ? "bg-gray-900 text-white" : "bg-blue-50 text-gray-900"}`}
+    >
+      <Navbar darkmode={darkmode} onDarkModeChange={handleDarkModeChange} />
 
       <BackendStatus darkmode={darkmode} />
 
-      <div className={`mt-6 w-full max-w-md`}>
+      <div className="mt-6 w-full max-w-md">
         <ImageUpload darkmode={darkmode} onImageSelected={handleImageSelected} />
 
         {loading && (
