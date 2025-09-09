@@ -8,6 +8,8 @@ def preprocess_image(image, target_size=(224, 224)):
     return image
 
 def predict_image(img_base64,model):
+    if(img_base64.__contains__("data")):
+        img_base64=img_base64[img_base64.find(',')+1:img_base64.__len__()]
     try:
         img_bytes = base64.b64decode(img_base64)
         img = Image.open(io.BytesIO(img_bytes)).convert("RGB")

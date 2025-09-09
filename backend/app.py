@@ -19,4 +19,4 @@ def predict():
 
 @app.route("/",methods=['GET'])
 def server_status():
-    return jsonify({'Status':'200 OK'}),200
+    return jsonify({'Status':'Up & Running'}),200

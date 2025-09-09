@@ -11,9 +11,9 @@ function BackendStatus({ darkmode }) {
     try {
       const res = await fetch("http://localhost:5000/");
       const data = await res.json();
-      setStatus(data.Status || "Running");
+      setStatus(data.Status);
     } catch (err) {
-      setStatus("Backend unreachable");
+      setStatus("Server Down");
     }
   };
 
@@ -26,7 +26,7 @@ function BackendStatus({ darkmode }) {
         Backend Status:{" "}
         <span
           className={`font-semibold ${
-            status.includes("unreachable") ? "text-red-600" : "text-green-600"
+            status.includes("Down") ? "text-red-600" : "text-green-600"
           }`}
         >
           {status}
