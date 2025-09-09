@@ -15,7 +15,7 @@ function ImageUpload({ onImageSelected, darkmode }) {
     <div className={`flex flex-col items-center p-6 border-2 border-dashed rounded-lg shadow-sm ${darkmode ? 'bg-gray-700 text-white' : 'bg-purple-200'}`}>
       <input
         type="file"
-        accept="image/*"
+        accept='image/*;capture="camera"'
         onChange={handleFileChange}
         className="mb-2"
       />
