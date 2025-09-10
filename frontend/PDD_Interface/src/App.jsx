@@ -3,22 +3,20 @@ import BackendStatus from "./components/BackendStatus";
 import ImageUpload from "./components/ImageUpload";
 import ResultCard from "./components/ResultCard";
 import Navbar from "./components/Navbar";
-
+let backend = import.meta.env.VITE_BACKEND_ADDRESS
 function App() {
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
   const [darkmode, setDarkmode] = useState(false);
-
   const handleDarkModeChange = (e) => {
     setDarkmode(e.target.checked);
   };
-
   const handleImageSelected = async (base64Image) => {
     setPrediction(null); // clear previous
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/predict", {
+      const res = await fetch(backend + "/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: base64Image }),
@@ -41,7 +39,7 @@ function App() {
     >
       <Navbar darkmode={darkmode} onDarkModeChange={handleDarkModeChange} />
 
-      <BackendStatus darkmode={darkmode} />
+      <BackendStatus darkmode={darkmode} backend={backend} />
 
       <div className="mt-6 w-full max-w-md">
         <ImageUpload darkmode={darkmode} onImageSelected={handleImageSelected} />

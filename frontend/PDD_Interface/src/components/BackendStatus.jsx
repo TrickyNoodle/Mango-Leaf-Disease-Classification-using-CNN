@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-function BackendStatus({ darkmode }) {
+
+function BackendStatus({ darkmode, backend }) {
   const [status, setStatus] = useState("Unknown");
 
   useEffect(() => {
@@ -9,7 +10,7 @@ function BackendStatus({ darkmode }) {
 
   const checkBackend = async () => {
     try {
-      const res = await fetch("http://localhost:5000/");
+      const res = await fetch(backend);
       const data = await res.json();
       setStatus(data.Status);
     } catch (err) {
@@ -25,9 +26,8 @@ function BackendStatus({ darkmode }) {
       <span className="text-sm text-center">
         Backend Status:{" "}
         <span
-          className={`font-semibold ${
-            status.includes("Down") ? "text-red-600" : "text-green-600"
-          }`}
+          className={`font-semibold ${status.includes("Down") ? "text-red-600" : "text-green-600"
+            }`}
         >
           {status}
         </span>
