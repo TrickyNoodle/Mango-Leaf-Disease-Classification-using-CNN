@@ -39,7 +39,6 @@ function App() {
     >
       <Navbar darkmode={darkmode} onDarkModeChange={handleDarkModeChange} />
 
-      <BackendStatus darkmode={darkmode} backend={backend} />
 
       <div className="mt-6 w-full max-w-md">
         <ImageUpload darkmode={darkmode} onImageSelected={handleImageSelected} />
@@ -51,6 +50,8 @@ function App() {
         )}
 
         <ResultCard prediction={prediction} darkmode={darkmode} />
+        
+        <BackendStatus darkmode={darkmode} backend={backend} />
       </div>
     </div>
   );
