@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 CORS(app,send_wildcard=True)
 
-model = tf.keras.models.load_model("models/densenet121/densenet121_dataset1-5.keras")
+model = tf.keras.models.load_model("models/densenet121/densenet121_dataset2-4.keras")
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -20,3 +20,6 @@ def predict():
 @app.route("/",methods=['GET'])
 def server_status():
     return jsonify({'Status':'Up & Running'}),200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')

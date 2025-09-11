@@ -3,3 +3,4 @@ datasets/*
 !datasets/README.md
 .venv
 node_modules/
+datasets/

@@ -13,8 +13,8 @@ datasets > dataset2 > class1
 ```
 
 # Datasets
-> ### [Mango Leaf Disease Dataset](https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset)
-
 > ### [Combined Mango Leaf Disease Dataset](https://www.kaggle.com/datasets/binhpt310/mango-combined-dataset)
+
+> ### [Mango Leaf Disease Dataset](https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset)
 
 > ### [MLD24](https://data.mendeley.com/datasets/6dvpywm2m2/1)
