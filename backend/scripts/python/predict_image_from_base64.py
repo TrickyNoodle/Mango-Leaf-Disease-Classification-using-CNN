@@ -7,6 +7,18 @@ def preprocess_image(image, target_size=(224, 224)):
     image = np.expand_dims(image, axis=0)
     return image
 
+# classes={
+#           'Anthracnose': 0, 
+#          'Bacterial Canker': 1, 
+#          'Cutting Weevil': 2,
+#          'Die Back': 3, 
+#          'Gall Midge': 4, 
+#          'Healthy': 5, 
+#          'Powdery Mildew': 6, 
+#          'Sooty Mould': 7
+#}
+
+
 def predict_image(img_base64,model):
     if(img_base64.__contains__("data")):
         img_base64=img_base64[img_base64.find(',')+1:img_base64.__len__()]
@@ -43,7 +55,7 @@ def predict_image(img_base64,model):
         return jsonify({
             "class": predicted_class,
             "confidence": confidence,
-            "className": className,
+            "className": className
         })
     except Exception as e:
         return jsonify({"error": str(e)})

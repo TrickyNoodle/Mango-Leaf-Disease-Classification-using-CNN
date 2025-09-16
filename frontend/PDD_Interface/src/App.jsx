@@ -3,6 +3,7 @@ import BackendStatus from "./components/BackendStatus";
 import ImageUpload from "./components/ImageUpload";
 import ResultCard from "./components/ResultCard";
 import Navbar from "./components/Navbar";
+import Note from "./components/Note";
 let backend = import.meta.env.VITE_BACKEND_ADDRESS
 function App() {
   const [prediction, setPrediction] = useState(null);
@@ -52,6 +53,7 @@ function App() {
         <ResultCard prediction={prediction} darkmode={darkmode} />
         
         <BackendStatus darkmode={darkmode} backend={backend} />
+        <Note darkmode={darkmode}/>
       </div>
     </div>
   );
