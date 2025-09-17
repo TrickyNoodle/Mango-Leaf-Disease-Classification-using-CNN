@@ -27,7 +27,7 @@ function App() {
       setPrediction(data);
     } catch (err) {
       console.error("Prediction failed:", err);
-      setPrediction({ class: "Error", confidence: 0 });
+      setPrediction({'error': 'Server not up'});
     } finally {
       setLoading(false);
     }
@@ -52,7 +52,7 @@ function App() {
 
         <ResultCard prediction={prediction} darkmode={darkmode} />
         
-        <BackendStatus darkmode={darkmode} backend={backend} />
+        <BackendStatus darkmode={darkmode} backend={backend} prediction={prediction}/>
         <Note darkmode={darkmode}/>
       </div>
     </div>

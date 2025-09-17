@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 
-function BackendStatus({ darkmode, backend }) {
+function BackendStatus({ darkmode, backend ,prediction}) {
   const [status, setStatus] = useState("Unknown");
 
   useEffect(() => {
     checkBackend();
-  }, []);
+  });
 
   const checkBackend = async () => {
     try {
@@ -15,12 +15,13 @@ function BackendStatus({ darkmode, backend }) {
       setStatus(data.Status);
     } catch (err) {
       setStatus("Server Down");
+      console.log(err)
     }
   };
 
   return (
     <div
-      className={`sm:fixed flex flex-col items-center justify-center space-y-2 p-4 rounded-lg shadow-md mb-10  sm:bottom-4 sm:left-1/2 sm:transform sm:-translate-x-1/2 my-4 max-w-fit mx-auto
+      className={`${prediction?'sm:sticky':'sm:fixed'} flex flex-col items-center justify-center space-y-2 p-4 rounded-lg shadow-md mb-10  sm:bottom-4 sm:left-1/2 sm:transform sm:-translate-x-1/2 my-4 max-w-fit mx-auto
       ${darkmode ? "bg-gray-800 text-white" : "bg-white text-gray-900"}`}
     >
       <span className="text-sm text-center">
