@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 from scripts.python.predict_image_from_base64 import predict_image
 from flask import Flask, request, jsonify
 from PIL import Image
