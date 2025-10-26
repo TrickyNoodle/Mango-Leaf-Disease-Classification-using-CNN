@@ -4,3 +4,5 @@ datasets/*
 .venv
 node_modules/
 datasets/
+package-lock.json
+.env
