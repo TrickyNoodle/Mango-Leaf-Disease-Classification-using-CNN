@@ -87,7 +87,7 @@ This project provides an interactive dashboard for detecting plant diseases in i
 3.  Install the dependencies:
 
     ```bash
-    pip install -r requirements.txt
+    pip install tensorflow numpy flask flask-cors pillow
     ```
 
 ### Running Locally
