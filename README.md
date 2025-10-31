@@ -32,6 +32,11 @@ This project provides an interactive dashboard for detecting plant diseases in i
     - DenseNet121/DenseNet169
 - **Build Tools**:
     - npm
+ 
+## ⚙️ Model Metrics
+![Training Accuraacy vs Vaidation Accuracy](Accuracy.jpeg)
+
+![Training loss vs Validation Loss](Loss.jpeg)
 
 ## 📦 Getting Started
 
