@@ -5,12 +5,13 @@ import sys
 
 def predict_image(image_path,img_size,model):
     img=cv2.imread(image_path)
+    print(img)
     img=cv2.resize(img,img_size)
     img=img.astype('float32')/255.0
     img=np.expand_dims(img,axis=0)
     prediction=model.predict(img)
     class_index=np.argmax(prediction)
-    print(prediction)
+    # print(prediction)
     match class_index:
         case 0:
             return 'Anthracnose'
