@@ -6,4 +6,4 @@ node_modules/
 datasets/
 package-lock.json
 .env
-yolo/*
+yolo/
