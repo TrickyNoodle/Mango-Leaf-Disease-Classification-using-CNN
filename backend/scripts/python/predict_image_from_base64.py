@@ -53,9 +53,12 @@ def predict_image(img_base64,model):
                 className='Sooty Mould'
 
         return jsonify({
-            "class": predicted_class,
-            "confidence": confidence,
-            "className": className
+            "predictions": [
+                {
+                    "confidence": confidence,
+                    "label": className
+                }
+            ]
         })
     except Exception as e:
         return jsonify({"error": str(e)})
