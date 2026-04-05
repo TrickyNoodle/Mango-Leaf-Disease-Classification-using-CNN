@@ -17,7 +17,7 @@ function ImageUpload({ onImageSelected, darkmode }) {
 
   return (
     <div
-      className={`flex flex-col items-center p-6 border-2 border-dashed rounded-lg shadow-sm mt-20 ${darkmode ? "bg-gray-700 text-white border-gray-500" : "bg-white text-gray-900 border-gray-300"
+      className={`flex flex-col items-center p-6 border-2 border-dashed rounded-lg shadow-sm mt-10 ${darkmode ? "bg-gray-700 text-white border-gray-500" : "bg-white text-gray-900 border-gray-300"
         }`}
     >
       <label

@@ -6,7 +6,7 @@ function ResultCard({ prediction, darkmode, url }) {
         className={`mt-6 p-6 rounded-lg text-center border-2 border-red-600 ${darkmode ? "bg-gray-800 text-white" : "bg-white text-gray-900"
           }`}
       >
-        <h2 className="text-xl font-semibold mb-2">An Unexpected Error Has Occured!</h2>
+        <h2 className="text-xl font-semibold mb-2">{prediction.error}</h2>
       </div>
     )
   }
@@ -18,12 +18,14 @@ function ResultCard({ prediction, darkmode, url }) {
             }`}
         >
           <h2 className="text-xl font-semibold mb-2">Prediction Result</h2>
-          {/* <img src={prediction} alt="" /> */}
+          {
+            prediction.image?<img className="w-full mx-auto rounded-md m-4" src={'data:image/jpeg;base64,'+prediction.image} alt="" />:null
+          }
           <div className="flex gap-2 overflow-x-scroll">
 
             {prediction['predictions'].map((element, idx) => {
               return (
-                <div className="p-2 border rounded-md">
+                <div className="mx-auto p-2 border rounded-md">
                   {idx + 1}
                   <p
                     className={`mt-2 font-medium ${element.label.toLowerCase().includes('healthy')

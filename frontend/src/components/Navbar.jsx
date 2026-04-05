@@ -3,7 +3,7 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 function Navbar({ darkmode, onDarkModeChange }) {
   return (
     <div
-      className={`sticky flex items-center top-0 backdrop-blur-2xl w-full shadow-2xl pacifico-regular font-ps py-6 px-6 ${darkmode ? "bg-gray-800 text-white" : "bg-white text-gray-900"
+      className={`z-1 sticky flex items-center top-0 backdrop-blur-2xl w-full shadow-2xl pacifico-regular font-ps py-6 px-6 ${darkmode ? "bg-gray-800 text-white" : "bg-white text-gray-900"
         }`}
     >
 

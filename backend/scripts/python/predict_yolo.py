@@ -53,7 +53,6 @@ def alt_predict(base64_img):
         predictions = []
 
         for box in coords:
-
             x1, y1, x2, y2 = map(int, box)
 
             crop = img[y1:y2, x1:x2]
@@ -73,23 +72,26 @@ def alt_predict(base64_img):
             })
 
             # draw box
-            cv2.rectangle(img,(x1,y1),(x2,y2),(0,255,0),2)
+            cv2.rectangle(img,(x1,y1),(x2,y2),(0, 255, 0) if label == "Healthy" else (0, 0, 255),1)
 
             cv2.putText(
-                img,
-                f"{label} {confidence:.2f}",
-                (x1,y1-10),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.7,
-                (0,255,0),
-                2
+            img,
+            f"{len(predictions)}",
+            (x1, y1 + 20),
+            cv2.QT_FONT_NORMAL,
+            0.6,
+            (0, 0,0),
+            1
             )
-
         result_image = image_to_base64(img)
-
-        return {
-            "predictions": predictions,
-            "image": result_image
-        }
+        if(len(predictions)!=0):
+            return {
+                "predictions": predictions,
+                "image": result_image
+            }
+        else:
+            return {
+                "error":"No Leaf Detected"
+            }
     except Exception as e:
-        return {"error":"An Unexpected Error Occured /No Leaf Detected"}
+        return {"error":"An Unexpected Error Occured"}

@@ -39,22 +39,16 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center transition-colors duration-300 
+      className={`min-h-screen flex flex-col items-center transition-colors duration-300
         ${darkmode ? "bg-gray-900 text-white" : "bg-blue-50 text-gray-900"}`}
     >
       <Navbar darkmode={darkmode} onDarkModeChange={handleDarkModeChange} />
-      <div className="flex flex-col items-center mt-6">
-        <label className="relative inline-flex items-center cursor-pointer">
-          <input type="checkbox" value="" className="sr-only peer" onChange={handleurlModeChange} />
-          <div className="rounded-full peer outline-none duration-100 after:duration-300 w-28 h-14 bg-blue-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-500  after:content-['No'] after:absolute after:outline-none after:h-12 after:w-12 after:bg-white after:top-1 after:left-1 after:flex after:justify-center after:items-center  after:text-sky-800 after:font-bold peer-checked:after:translate-x-14 peer-checked:after:content-['Yes'] peer-checked:after:border-white after:rounded-full">
+      <label class="relative inline-flex items-center cursor-pointer mt-6">
+        <input class="sr-only peer" value="" type="checkbox" onChange={handleurlModeChange}/>
+          <div class="peer rounded-full outline-none duration-100 after:duration-500 w-28 h-14 bg-blue-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-500  after:content-['No'] after:absolute after:outline-none after:rounded-full after:h-12 after:w-12 after:bg-white after:top-1 after:left-1 after:flex after:justify-center after:items-center  after:text-sky-800 after:font-bold peer-checked:after:translate-x-14 peer-checked:after:content-['Yes'] peer-checked:after:border-white">
           </div>
-        </label>
-        <span className="text-md font-bold">
-          Use Advanced Mode
-        </span>
-      </div>
-
-
+      </label>
+      <span class="ml-3 text-md font-bold mt-1">Use Advanced Mode</span>
       <div className={`md:flex flex-col not-[md]:w-full items-center`}>
         <ImageUpload darkmode={darkmode} onImageSelected={handleImageSelected} />
         <ResultCard prediction={prediction} darkmode={darkmode} url={url} />
