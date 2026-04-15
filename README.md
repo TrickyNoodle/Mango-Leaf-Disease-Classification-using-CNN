@@ -6,10 +6,13 @@ This project provides an interactive dashboard for detecting plant diseases in i
 
 - **Image Upload**: Allows users to upload images for disease prediction.
 - **Disease Prediction**: Uses a TensorFlow model to predict plant diseases from uploaded images.
+- **ESP32 Companion Mode**: Optionally fetches temperature and humidity data from an ESP32 companion device by IP address.
+- **Advanced Two-stage Pipeline**: Uses YOLO to detect and crop the mango leaf, then classifies the cropped leaf with a CNN.
+- **Intel CPU Mode**: Runs on Intel-compatible TensorFlow/CPU mode without requiring NVIDIA CUDA.
 - **Real-time Results**: Displays prediction results, including class name and confidence level, in real-time.
 - **Backend Status**: Monitors and displays the status of the backend server.
 - **Dark Mode**: Offers a dark mode option for improved user experience.
-- **API Endpoints**: Provides `/predict` endpoint for image prediction and `/` endpoint for server status.
+- **API Endpoints**: Provides `/predict` endpoint for standard image prediction, `/alt-predict` for advanced YOLO + CNN detection/classification, and `/` endpoint for server status.
 - **CORS Enabled**: Allows requests from different origins (frontend and backend).
 - **Model Training**: Includes scripts for training the TensorFlow model with data augmentation and class weighting.
 
@@ -24,7 +27,7 @@ This project provides an interactive dashboard for detecting plant diseases in i
 - **Backend**:
     - Flask
     - Python
-    - TensorFlow
+    - TensorFlow (Intel CPU / CPU-only inference)
     - Keras
     - Pillow (PIL)
     - Flask-CORS
@@ -61,10 +64,10 @@ This project provides an interactive dashboard for detecting plant diseases in i
 
 **Frontend:**
 
-1.  Navigate to the `frontend/PDD_Interface` directory:
+1.  Navigate to the `frontend` directory:
 
     ```bash
-    cd frontend/PDD_Interface
+    cd frontend
     ```
 
 2.  Install the dependencies:
@@ -95,14 +98,16 @@ This project provides an interactive dashboard for detecting plant diseases in i
     pip install tensorflow numpy flask flask-cors pillow
     ```
 
+    > Note: This project is configured for Intel CPU mode and does not require NVIDIA CUDA or GPU drivers.
+
 ### Running Locally
 
 **Frontend:**
 
-1.  Navigate to the `frontend/PDD_Interface` directory:
+1.  Navigate to the `frontend` directory:
 
     ```bash
-    cd frontend/PDD_Interface
+    cd frontend
     ```
 
 2.  Start the development server:
@@ -137,7 +142,14 @@ This project provides an interactive dashboard for detecting plant diseases in i
 4.  The prediction result will be displayed in the `ResultCard` component.
 5.  The backend status will be displayed in the `BackendStatus` component.
 6.  Toggle dark mode using the switch in the `Navbar`.
+7.  Enable **Advanced Mode** to use a two-stage pipeline: first YOLO leaf detection, then CNN classification on the detected leaf crop.
 
+### Companion Mode (ESP32)
+
+1.  In the image upload area, enable **Companion Mode**.
+2.  Enter the IP address of your ESP32 companion device.
+3.  Upload the mango leaf image.
+4.  The app will fetch temperature and humidity data from the ESP32 at `http://<COMPANION_IP>/data` and include it with the prediction.
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:
