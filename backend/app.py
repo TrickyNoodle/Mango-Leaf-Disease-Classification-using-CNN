@@ -1,5 +1,7 @@
 import os
 
+os.environ['TF_ENABLE_ONEDNN_OPTS']=str(0)
+
 from scripts.python.predict_image_from_base64 import predict_image
 from flask import Flask, request, jsonify
 from PIL import Image
