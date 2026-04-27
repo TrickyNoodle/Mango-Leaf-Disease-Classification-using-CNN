@@ -74,12 +74,12 @@ function ResultCard({ prediction, darkmode, url }) {
       <h2 className="text-xl font-semibold mb-2">Prediction Result</h2>
       {url && prediction.image && (
         <img
-          className="w-full mx-auto rounded-md m-4"
+          className="w-full md:w-1/3 mx-auto rounded-md m-4"
           src={"data:image/jpeg;base64," + prediction.image}
           alt=""
         />
       )}
-      <div className="flex gap-3 overflow-x-auto">
+      <div className="flex gap-3 overflow-x-auto md:w-2/3 mx-auto">
         {prediction.predictions.map((element, idx) => {
           const risk = getRisk(
             element.label,
@@ -92,7 +92,7 @@ function ResultCard({ prediction, darkmode, url }) {
           return (
             <div
               key={idx}
-              className="min-w-[220px] p-3 border rounded-md shadow-sm"
+              className="min-w-[220px] p-3 border rounded-md shadow-sm mx-auto"
             >
               <p className="text-sm font-bold">{idx + 1}</p>
               <p
